@@ -1,0 +1,146 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{cleveref}
+
+\makeatletter
+\@addtoreset{subfigure}{figure}
+\makeatother
+
+
+\usetheme{Execushares}
+
+
+% Title page details: 
+\title{Biomedical and nuclear imaging for entrepreneurs} 
+\author{ 
+    \textbf{Ádám István Szűcs}
+}
+\date{XXX XX, 2024}
+
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Environment}
+\subsection{Local -- Hungary}
+\begin{frame}{CAD diagnosis with SPECT MPI}
+    \begin{itemize}
+        \item<1-> Radiopharmaceuticals injected intravenously
+        \item<2-> Gamma radiation is captured by SPECT cameras
+        \item<3-> Reconstruction with various methods
+        \item<4-> Evaluation of segmented and reoriented left ventricles
+    \end{itemize}
+\end{frame}
+
+\subsection{Global -- EU}
+\begin{frame}{CAD diagnosis with SPECT MPI}
+    \begin{itemize}
+        \item<1-> Radiopharmaceuticals injected intravenously
+        \item<2-> Gamma radiation is captured by SPECT cameras
+        \item<3-> Reconstruction with various methods
+        \item<4-> Evaluation of segmented and reoriented left ventricles
+    \end{itemize}
+\end{frame}
+
+\subsection{Global -- US and the rest}
+\begin{frame}{CAD diagnosis with SPECT MPI}
+    \begin{itemize}
+        \item<1-> Radiopharmaceuticals injected intravenously
+        \item<2-> Gamma radiation is captured by SPECT cameras
+        \item<3-> Reconstruction with various methods
+        \item<4-> Evaluation of segmented and reoriented left ventricles
+    \end{itemize}
+\end{frame}
+
+\section{Portfolio}
+\subsection{Nuclear imaging}
+\begin{frame}{Reorientation}
+    \begin{itemize}
+        \item<1->Manual reorientation is slow
+        \item<2->Automatic reorientation is fast
+        \item<3->Reorientation must be accurate
+        \item<4->Automatic reorientation is easy if we have a segmented LV
+    \end{itemize}
+\end{frame}
+
+\subsection{Microbiology imaging}
+
+\begin{frame}{Automatic segmentation methods}
+    \begin{center}
+        \begin{tabular}{ c || c | c | c}
+            Labeled data reqs. & Model based & Self-supervised & Supervised \\
+            \hline
+            No data & $\checkmark$ & $\times$ & $\times$ \\
+            Small set & $\times$ & $\checkmark$ & $\times$ \\
+            Large set & $\times$ & $\times$ & $\checkmark$
+        \end{tabular}
+
+        \vspace{2em}
+
+        \begin{tabular}{ c || c | c | c}
+            & Model based & Self-supervised & Supervised \\
+            \hline
+            Accuracy & $\times$ & ? & $\checkmark$ \\
+            Robustness & $\times$ & ? & $\checkmark$ \\
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\section{Solution}
+\subsection{Education -- courses}
+\begin{frame}{Representation learning}
+    \centering Standard 3D U-Net \cite{cciccek20163d}\\ with self supervised representation learning
+\end{frame}
+
+\subsection{Company network}
+\begin{frame}{Heavy augmentation}
+    Data augmentation
+    \begin{itemize}
+        \item affine transformation 
+        \item elastic transformation
+        \item extra noise
+        \item jigsaw puzzle with maximal hamming distance, 1000 permutations
+    \end{itemize}
+    Training strategy as in 3D SSL U-Net with two-stage training as in \cite{adam2023}
+\end{frame}
+
+
+\section{Q\&A}
+\begin{frame}
+    \begin{center}
+        \Huge \emph{Thank You}
+    \end{center}
+
+    \tiny The research was supported by the project No. 2019-1.3.1-KK-2019-00011 financed by the National Research, Development and Innovation Fund of Hungary under the Establishment of Competence Centers, Development of Research Infrastructure Programme funding scheme. 
+\end{frame}
+
+\backupbegin
+\begin{frame}[c]
+    \frametitle{The code}
+    \centering
+    Abrakadabra
+\end{frame}
+
+\begin{frame}%[allowframebreaks]{Outline}
+    \frametitle{References}
+    \bibliographystyle{apalike}
+    {
+    \tiny
+    \bibliography{pitch.bib}
+    }
+\end{frame}
+\backupend
+
+\end{document}
